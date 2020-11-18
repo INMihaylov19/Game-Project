@@ -33,7 +33,46 @@ function winCheck() {
     matchStatus = true;
   }
   //Match won by second player filling all lower spaces
-
+  if (currentMatch[0][0] == currentMatch[1][0] && currentMatch[0][0] == currentMatch[2][0] && currentMatch[0][0] == 1) {
+    matchStatus = true;
+  }
+  //Match won by first player filling all left spaces
+    if (currentMatch[0][1] == currentMatch[1][1] && currentMatch[0][1] == currentMatch[2][1] && currentMatch[0][1] == 1) {
+    matchStatus = true;
+  }
+  //Match won by first player filling all middle vertical spaces
+      if (currentMatch[0][2] == currentMatch[1][2] && currentMatch[0][2] == currentMatch[2][2] && currentMatch[0][2] == 1) {
+    matchStatus = true;
+  }
+  //Match won by first player filling all right spaces
+  if (currentMatch[0][0] == currentMatch[1][0] && currentMatch[0][0] == currentMatch[2][0] && currentMatch[0][0] == 2) {
+    matchStatus = true;
+  }
+  //Match won by second player filling all left spaces
+    if (currentMatch[0][1] == currentMatch[1][1] && currentMatch[0][1] == currentMatch[2][1] && currentMatch[0][1] == 2) {
+    matchStatus = true;
+  }
+  //Match won by second player filling all middle vertical spaces
+      if (currentMatch[0][2] == currentMatch[1][2] && currentMatch[0][2] == currentMatch[2][2] && currentMatch[0][2] == 2) {
+    matchStatus = true;
+  }
+  //Match won by second player filling all right spaces
+    if (currentMatch[0][0] == currentMatch[1][1] && currentMatch[0][0] == currentMatch[2][2] && currentMatch[0][0] == 1) {
+    matchStatus = true;
+  }
+  //Match won by first player filling all left diagonal spaces
+      if (currentMatch[0][2] == currentMatch[1][1] && currentMatch[0][2] == currentMatch[2][0] && currentMatch[0][2] == 1) {
+    matchStatus = true;
+  }
+  //Match won by first player filling all right diagonal spaces
+      if (currentMatch[0][0] == currentMatch[1][1] && currentMatch[0][0] == currentMatch[2][2] && currentMatch[0][0] == 2) {
+    matchStatus = true;
+  }
+  //Match won by second player filling all left diagonal spaces
+      if (currentMatch[0][2] == currentMatch[1][1] && currentMatch[0][2] == currentMatch[2][0] && currentMatch[0][2] == 2) {
+    matchStatus = true;
+  }
+  //Match won by second player filling all right diagonal spaces
 }
 function play(buttonID) {
   var positionX = buttonID[0] - 1;
