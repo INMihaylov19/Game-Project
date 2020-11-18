@@ -9,6 +9,7 @@
     display: flex;
     font-family: sans-serif;
     justify-content: center;
+    font-size:50px ;
   }
   
   .board {
@@ -40,5 +41,17 @@
     cursor: pointer;
     height: 200px;
     width: 200px;
+    border-style: none;
   }
-  
+
+ button:active {
+border: none;
+outline:none;
+
+}
+button:focus {
+border: none;
+outline:none;
+
+
+}

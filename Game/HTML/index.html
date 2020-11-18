@@ -1,26 +1,43 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../CSS/style.css">
   <title>Tic Tac Toe</title>
 </head>
+
 <body>
-  <div class="board"><!--Whole game-->
-    <h1 class="title">Морски шах</h1><!--Title of the game-->
-    <div class="grid"><!--Game grid-->
-      <div class="game-cell" id="1-1"></div><!--Top Left Cell-->
-      <div class="game-cell" id="1-2"></div><!--Top Middle  Cell-->
-      <div class="game-cell" id="1-3"></div><!--Top Right Cell-->
-      <div class="game-cell" id="2-1"></div><!--Middle Left Cell-->
-      <div class="game-cell" id="2-2"></div><!--Middle Middle  Cell-->
-      <div class="game-cell" id="2-3"></div><!--Middle Right Cell-->
-      <div class="game-cell" id="3-1"></div><!--Bottom Left Cell-->
-      <div class="game-cell" id="3-2"></div><!--Bottom Middle  Cell-->
-      <div class="game-cell" id="3-3"></div><!--Bottom Right Cell-->
+  <div class="board">
+    <!--Whole game-->
+    <h1 class="title">Морски шах</h1>
+    <!--Title of the game-->
+    <div class="grid">
+      <!--Game grid-->
+      <button class="game-cell" id="1-1" onclick="play(this.id )"><img src=""></img></button>
+      <!--Top Left Cell-->
+      <button class=" game-cell" id="1-2" onclick="play(this.id )"><img src=""></img></button>
+      <!--Top Middle  Cell-->
+      <button class="game-cell" id="1-3" onclick="play(this.id )"><img src=""></img></button>
+      <!--Top Right Cell-->
+      <button class="game-cell" id="2-1" onclick="play(this.id )"><img src=""></img></button>
+      <!--Middle Left Cell-->
+      <button class="game-cell" id="2-2" onclick="play(this.id )"><img src=""></img></button>
+      <!--Middle Middle  Cell-->
+      <button class="game-cell" id="2-3" onclick="play(this.id )"><img src=""></img></button>
+      <!--Middle Right Cell-->
+      <button class="game-cell" id="3-1" onclick="play(this.id )"><img src=""></img></button>
+      <!--Bottom Left Cell-->
+      <button class="game-cell" id="3-2" onclick="play(this.id )"><img src=""></img></button>
+      <!--Bottom Middle  Cell-->
+      <button class="game-cell" id="3-3" onclick="play(this.id )"><img src=""></img></button>
+      <!--Bottom Right Cell-->
     </div>
   </div>
+  <script src="../JavaScript/script.js"></script>
 </body>
+
 </html>
