@@ -83,8 +83,8 @@ function play(buttonID) {
     //checks if we can play on this spot
     document.getElementById(buttonID).className += " usedX"
     document.getElementById(buttonID).childNodes[0].src = "../Images/cross.png"
-    document.getElementById(buttonID).childNodes[0].style.width = "200px"
-    document.getElementById(buttonID).childNodes[0].style.height = "200px"
+    document.getElementById(buttonID).childNodes[0].style.width = "150px"
+    document.getElementById(buttonID).childNodes[0].style.height = "150px"
     //initiats the visual representation of a move
     currentMatch[positionX][positionY] = 1;
     //logs into memory the move
@@ -96,8 +96,8 @@ function play(buttonID) {
     //checks if we can play on this spot
     document.getElementById(buttonID).className += " usedO"
     document.getElementById(buttonID).childNodes[0].src = "../Images/circle.png"
-    document.getElementById(buttonID).childNodes[0].style.width = "200px"
-    document.getElementById(buttonID).childNodes[0].style.height = "200px"
+    document.getElementById(buttonID).childNodes[0].style.width = "150px"
+    document.getElementById(buttonID).childNodes[0].style.height = "150px"
     //initiats the visual representation of a move
     currentMatch[positionX][positionY] = 2;
     //logs into memory the move
