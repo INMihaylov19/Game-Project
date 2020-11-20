@@ -82,7 +82,7 @@ function play(buttonID) {
   if (currentPlayer && !buttonClass.includes("used")) {
     //checks if we can play on this spot
     document.getElementById(buttonID).className += " usedX"
-    document.getElementById(buttonID).childNodes[0].src = "../Images/cross.png"
+    document.getElementById(buttonID).childNodes[0].src = "../Images/cross copy.png"
     document.getElementById(buttonID).childNodes[0].style.width = "150px"
     document.getElementById(buttonID).childNodes[0].style.height = "150px"
     //initiats the visual representation of a move
