@@ -10,7 +10,14 @@ body{
     font-family: 'Lobster', arial;
     color:rgb(69,30,93);
 }
-
+table{
+    color:rgb(69,30,93);
+    text-decoration: none;
+    background-color:black;
+    line-height: 1.6;
+    text-align: center;
+    font-family: 'Lobster', arial;
+}
 a{
     color:rgb(69,30,93);
     text-decoration: none;
@@ -72,19 +79,19 @@ nav{
 }
 
 @keyframes content{
-    0%      {left: -1000px;}
-    100%    {left: 0;}
+    0%      {top: -200px;}
+    100%    {top: 0;}
 }
 
 #content1{
     font-size: 40px;
     position: relative;
     animation-name: content1;
-    animation-duration: 2s;
+    animation-duration: 3s;
     animation-fill-mode: forwards;
 }
 
 @keyframes content1{
-    0%      {right: -1000px;}
-    100%    {right: 0;}
+    0%      {bottom: -1000px;}
+    100%    {bottom: 0;}
 }
