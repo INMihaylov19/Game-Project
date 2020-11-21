@@ -13,10 +13,6 @@
   <title>Tic Tac Toe</title>
 </head>
 
-<body>
-  <div id = "main-menu">
-    <a href = "menu.html">Main Menu</a>
-</div>
   <div class="board">
     <!--Whole game-->
     <h1 class="title">Морски шах</h1>
@@ -42,17 +38,15 @@
       <button class="game-cell" id="3-3" onclick="play(this.id )"><img src=""></img></button>
       <!--Bottom Right Cell-->
     </div>
-    <table>
-      <tr>
-        <th>Играч 1</th>
-        <th>Играч 2</th>
-      </tr>
-      <tr>
-        <td>0 точки </td>
-        <td>0 точки</td>
-      </tr>
-      </table>
-  </div>
+    </div>
+
+    <nav id = "stats">
+      <h1>Stats</h1><br>
+      <p id="scoreP1">Player 1 score: 0</p><br>
+    	<p id="scoreP2">Player 2 score: 0</p><br>
+      <p id="Ties">Ties: 0</p><br>
+      <a href = "../HTML/menu.html">Main Menu</a>
+    </nav>
   
   <script src="../JavaScript/script.js"></script>
   
