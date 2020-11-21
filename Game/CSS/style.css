@@ -1,64 +1,78 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    color:rgb(69,30,93);
+    background-color:black;
+    display: flex;
+    justify-content: center;
+    font-size:30px ;
+    font-family: 'Architects Daughter', cursive;
+  }
+  table, th, td {
+    color:rgb(69,30,93);
+    background-color:black;
+    font-size:30px ;
+    font-family: 'Lobster', arial;
+  }
+  .board {
+    background:black;
+    margin: 25px;
+    padding: 50px;
+    border-radius: 25px;
+    position: relative;
+    animation-name: gamestart;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes gamestart{
+    0%      {bottom: -1000px;}
+    100%    {bottom: 0px;}
 }
 
-body {
-  color:rgb(69,30,93);
-  background-color:black;
-  display: flex;
-  justify-content: center;
-  font-size:30px ;
-  font-family: 'Architects Daughter', cursive;
+  
+  .title{
+    text-align: center;
+  }
+
+
+  #main-menu a{
+    font-size: 60px;
+    text-align: left;
+    margin-top: 40px;
+    text-decoration: none;
+    color:rgb(69,30,93);
 }
 
-.board {
-  background:black;
-  padding: 50px;
-  border-radius: 25px;
-}
+  a:hover{
+    color: #ed7ab0;
+    transition-duration: 0.6s;
+  }
+  
+  .grid {
+    background:rgb(69,30,93);
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px;
+    grid-gap: 5px;
+    margin-top: 50px;
+  }
+  
+  .game-cell {
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+    border-style: none;
+  }
 
-
-.title{
-  text-align: center;
-}
-
-
-#main-menu a{
-  font-size: 60px;
-  text-align: left;
-  margin-top: 40px;
-  text-decoration: none;
-  color:rgb(69,30,93);
-}
-
-a:hover{
-  color: #ed7ab0;
-  transition-duration: 0.6s;
-}
-
-.grid {
-  background:rgb(69,30,93);
-  display: grid;
-  grid-template-columns: 200px 200px 200px;
-  grid-template-rows: 200px 200px 200px;
-  grid-gap: 5px;
-  margin-top: 50px;
-}
-
-.game-cell {
-  background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  height: 200px;
-  width: 200px;
-  border-style: none;
-}
-
-button:active {
+ button:active {
 border: none;
 outline:none;
 
@@ -66,9 +80,6 @@ outline:none;
 button:focus {
 border: none;
 outline:none;
-}
 
-#stats{
-  padding: 80px;
-  margin-right: -450px;
+
 }
