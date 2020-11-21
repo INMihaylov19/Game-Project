@@ -7,7 +7,8 @@ body{
     background-color:black;
     line-height: 1.6;
     text-align: center;
-    font-family: 'Architects Daughter', cursive;
+    font-family: 'Lobster', arial;
+    color:rgb(69,30,93);
 }
 
 a{
@@ -16,6 +17,18 @@ a{
     letter-spacing: 8px;
 }
 
+#title{
+    color:rgb(69,30,93);
+    text-decoration: none;
+    letter-spacing: 8px;
+    font-size: 50px; 
+}
+p{
+    color:rgb(69,30,93);
+    text-decoration: none;
+    
+    font-size: 24px; 
+}
 a:hover{
     color: #ed7ab0;
     transition-duration: 0.6s;
