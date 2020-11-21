@@ -12,16 +12,11 @@
     font-size:30px ;
     font-family: 'Architects Daughter', cursive;
   }
-  table, th, td {
-    color:rgb(69,30,93);
-    background-color:black;
-    font-size:30px ;
-    font-family: 'Lobster', arial;
-  }
+
   .board {
-    background:black;
     margin: 25px;
     padding: 50px;
+    background:black;
     border-radius: 25px;
     position: relative;
     animation-name: gamestart;
@@ -29,8 +24,8 @@
     animation-fill-mode: forwards;
   }
   @keyframes gamestart{
-    0%      {bottom: -1000px;}
-    100%    {bottom: 0px;}
+    0%      {top: -1000px;}
+    100%    {top: 0px;}
 }
 
   
@@ -39,12 +34,10 @@
   }
 
 
-  #main-menu a{
-    font-size: 60px;
-    text-align: left;
-    margin-top: 40px;
-    text-decoration: none;
+  a{
     color:rgb(69,30,93);
+    text-decoration: none;
+    letter-spacing: 8px;
 }
 
   a:hover{
@@ -80,6 +73,21 @@ outline:none;
 button:focus {
 border: none;
 outline:none;
-
-
 }
+
+#stats{
+  position: relative;
+  padding: 80px;
+  margin-right: -450px;
+  animation-name: stats;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+  @keyframes stats{
+    0% {right: -150px;}
+    100% {right: 0px;}
+
+  }
+
+
