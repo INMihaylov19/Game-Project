@@ -5,14 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="https://allfont.net/allfont.css?fonts=lobster" rel="stylesheet" type="text/css" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../CSS/style.css">
   <title>Tic Tac Toe</title>
 </head>
 
 <body>
+  <div id = "main-menu">
+    <a href = "menu.html">Main Menu</a>
+</div>
   <div class="board">
     <!--Whole game-->
     <h1 class="title">Морски шах</h1>
@@ -38,15 +42,20 @@
       <button class="game-cell" id="3-3" onclick="play(this.id )"><img src=""></img></button>
       <!--Bottom Right Cell-->
     </div>
+    <table>
+      <tr>
+        <th>Играч 1</th>
+        <th>Играч 2</th>
+      </tr>
+      <tr>
+        <td>0 точки </td>
+        <td>0 точки</td>
+      </tr>
+      </table>
   </div>
-
-<nav id = "stats">
-  <h1>Stats</h1><br>
-  <p id="scoreP1">Player 1 score: 0</p><br>
-  <p id="scoreP2">Player 2 score: 0</p><br>
-  <p id="Ties">Ties: 0</p>
-</nav>
+  
   <script src="../JavaScript/script.js"></script>
+  
 </body>
 
 </html>
