@@ -7,21 +7,28 @@ body{
     background-color:black;
     line-height: 1.6;
     text-align: center;
-    font-family: 'Lobster', arial;
+    font-family: 'Architects Daughter', cursive;
     color:rgb(69,30,93);
 }
-table{
-    color:rgb(69,30,93);
-    text-decoration: none;
-    background-color:black;
-    line-height: 1.6;
-    text-align: center;
-    font-family: 'Lobster', arial;
-}
-a{
+
+#main-menu{
     color:rgb(69,30,93);
     text-decoration: none;
     letter-spacing: 8px;
+    font-size: 60px;
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 40px;
+}
+
+#main-menu a{
+    text-decoration: none;
+    color:rgb(69,30,93);
+}
+
+#main-menu a:hover{
+    color: #ed7ab0;
+    transition-duration: 0.6s;
 }
 
 #title{
@@ -33,12 +40,8 @@ a{
 p{
     color:rgb(69,30,93);
     text-decoration: none;
-    
+    letter-spacing: 4px;
     font-size: 24px; 
-}
-a:hover{
-    color: #ed7ab0;
-    transition-duration: 0.6s;
 }
 
 nav{
@@ -53,10 +56,7 @@ nav{
 }
 
 #showcase{
-    height: 260px;
-}
-
-#showcase a{
+    text-decoration: none;
     font-size: 40px;
     line-height: 1.3;
     position: relative;
@@ -67,7 +67,7 @@ nav{
 
 @keyframes heading{
     0%      {top: -200px;}
-    100%    {top: 200px;}
+    100%    {top: 150px;}
 }
 
 #content{
@@ -89,6 +89,7 @@ nav{
     animation-name: content1;
     animation-duration: 3s;
     animation-fill-mode: forwards;
+    padding: 30px;
 }
 
 @keyframes content1{
