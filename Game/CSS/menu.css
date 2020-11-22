@@ -26,7 +26,7 @@ nav{
 }
 
 #main-menu{
-    font-size: 60px;
+    font-size: 6vh;
     text-align: left;
     margin-left: 100px;
     margin-top: 40px;
@@ -37,7 +37,7 @@ nav{
 }
 
 #showcase a{
-    font-size: 40px;
+    font-size: 4vh;
     line-height: 1.3;
     position: relative;
     animation: heading;
@@ -51,7 +51,7 @@ nav{
 }
 
 #content{
-    font-size: 40px;
+    font-size: 4vh;
     position: relative;
     animation-name: content;
     animation-duration: 2s;
@@ -64,7 +64,7 @@ nav{
 }
 
 #content1{
-    font-size: 40px;
+    font-size: 4vh;
     position: relative;
     animation-name: content1;
     animation-duration: 2s;
