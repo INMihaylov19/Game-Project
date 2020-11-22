@@ -15,7 +15,6 @@ body{
     color:rgb(69,30,93);
     text-decoration: none;
     letter-spacing: 8px;
-    font-size: 60px;
     text-align: left;
     margin-left: 100px;
     margin-top: 40px;
@@ -24,6 +23,7 @@ body{
 #main-menu a{
     text-decoration: none;
     color:rgb(69,30,93);
+    font-size: 6vh;
 }
 
 #main-menu a:hover{
@@ -35,13 +35,13 @@ body{
     color:rgb(69,30,93);
     text-decoration: none;
     letter-spacing: 8px;
-    font-size: 50px; 
+    font-size: 5vh; 
 }
 p{
     color:rgb(69,30,93);
     text-decoration: none;
     letter-spacing: 4px;
-    font-size: 24px; 
+    font-size: 3vh;
 }
 
 nav{
@@ -71,7 +71,7 @@ nav{
 }
 
 #content{
-    font-size: 40px;
+    font-size: 3vh;
     position: relative;
     animation-name: content;
     animation-duration: 2s;
@@ -84,7 +84,7 @@ nav{
 }
 
 #content1{
-    font-size: 40px;
+    font-size: 3vh;
     position: relative;
     animation-name: content1;
     animation-duration: 3s;
