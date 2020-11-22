@@ -117,12 +117,12 @@ function restartGame() {
   let ties;
   if (matchStatus == true) {
     player1wins++;
-    document.getElementById("scoreP1").innerHTML = "Player 1 score: " + player1wins;
+    document.getElementById("scoreP1").innerHTML = "Играч 1: " + player1wins;
     clearboard();
   }
   if (matchStatus == false) {
     player2wins++;
-    document.getElementById("scoreP2").innerHTML = "Player 2 score: " + player2wins;
+    document.getElementById("scoreP2").innerHTML = "Играч 2: " + player2wins;
     clearboard();
   }
   console.log(player2wins)
