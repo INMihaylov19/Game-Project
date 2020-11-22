@@ -81,12 +81,14 @@ function play(buttonID) {
   var positionY = buttonID[2] - 1;
   // postion of the current button
   var buttonClass = document.getElementById(buttonID).className
-  if (currentPlayer && !buttonClass.includes("used")) {
+  if (currentPlayer == true && !buttonClass.includes("used")) {
     //checks if we can play on this spot
     document.getElementById(buttonID).className += " usedX"
     document.getElementById(buttonID).childNodes[0].src = "../Images/cross copy.png"
-    document.getElementById(buttonID).childNodes[0].style.width = "150px"
-    document.getElementById(buttonID).childNodes[0].style.height = "150px"
+    document.getElementById(buttonID).childNodes[0].style.display = "block"
+    document.getElementById(buttonID).childNodes[0].style.width = "175px"
+    document.getElementById(buttonID).childNodes[0].style.height = "175px"
+
     //initiats the visual representation of a move
     currentMatch[positionX][positionY] = 1;
     //logs into memory the move
@@ -98,8 +100,9 @@ function play(buttonID) {
     //checks if we can play on this spot
     document.getElementById(buttonID).className += " usedO"
     document.getElementById(buttonID).childNodes[0].src = "../Images/circle.png"
-    document.getElementById(buttonID).childNodes[0].style.width = "150px"
-    document.getElementById(buttonID).childNodes[0].style.height = "150px"
+    document.getElementById(buttonID).childNodes[0].style.display = "block"
+    document.getElementById(buttonID).childNodes[0].style.width = "140px"
+    document.getElementById(buttonID).childNodes[0].style.height = "140px"
     //initiats the visual representation of a move
     currentMatch[positionX][positionY] = 2;
     //logs into memory the move
@@ -108,24 +111,50 @@ function play(buttonID) {
 
   }
   winCheck();
-  restartGame()
 }
+let player1wins = 0;
+let player2wins = 0;
+let ties = 0;
+var counter = 0;
 function restartGame() {
-
-  let player1wins = 0;
-  let player2wins = 0;
-  let ties;
-  if (matchStatus == true) {
+  var noTie = true;
+  if (matchStatus == true && counter == 1) {
     player1wins++;
     document.getElementById("scoreP1").innerHTML = "Играч 1: " + player1wins;
+    counter = 0;
     clearboard();
   }
-  if (matchStatus == false) {
+  if (matchStatus == false && counter == 1) {
     player2wins++;
     document.getElementById("scoreP2").innerHTML = "Играч 2: " + player2wins;
+    counter = 0;
     clearboard();
   }
-  console.log(player2wins)
+  var fullRows = 0;
+  for (let i = 0; i < 3; i++) {
+    let nonEmptySpaces = 0;
+    for (let j = 0; j < 3; j++) {
+      if (currentMatch[i][j] != 0) {
+        nonEmptySpaces++
+      }
+      if (nonEmptySpaces == 3) {
+        fullRows++;
+      }
+    }
+
+    if (fullRows == 3) {
+      noTie = false
+    }
+  }
+  if (!noTie && counter == 1) {
+    ties++;
+    document.getElementById("ties").innerHTML = "Равенства: " + ties;
+    counter = 0;
+    clearboard();
+  }
+  if (matchStatus == true || matchStatus == false || noTie == false) {
+    counter++;
+  }
 }
 function clearboard() {
   for (let i = 0; i < 3; i++) {
@@ -133,6 +162,13 @@ function clearboard() {
       currentMatch[i][j] = 0;
     }
   }
-  document.getElementsByTagName("img")[0].style.src = ""
+  for (let i = 0; i < 9; i++) {
+    document.getElementsByTagName("img")[i].style.display = "none"
+  }
+  for (let i = 0; i < 9; i++) {
+    document.getElementsByTagName("button")[i].className = "game-cell"
+  }
+  matchStatus = null
+  currentPlayer = true
 }
 
