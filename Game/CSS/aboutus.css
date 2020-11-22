@@ -11,7 +11,9 @@ body{
     color:rgb(69,30,93);
     letter-spacing: 8px;
 }
-
+img{
+    max-width: 10vh;
+}
 a{
     color:rgb(69,30,93);
     text-decoration: none;
@@ -56,7 +58,7 @@ nav{
     color:rgb(69,30,93);
     text-decoration: none;
     letter-spacing: 8px;
-    font-size: 60px;
+    font-size: 6vh;
     text-align: left;
     margin-left: 100px;
     margin-top: 40px;
@@ -98,7 +100,7 @@ nav{
     color:rgb(69,30,93);
     text-decoration: none;
     letter-spacing: 8px;
-    font-size: 50px;
+    font-size: 5vh;
 }
 
 @keyframes content1{
@@ -112,6 +114,7 @@ nav{
     animation-name: content2;
     animation-duration: 2s;
     animation-fill-mode: forwards;
+    font-size: 3vh;
 }
 
 @keyframes content2{
@@ -125,6 +128,7 @@ nav{
     animation-name: content3;
     animation-duration: 2s;
     animation-fill-mode: forwards;
+    font-size: 3vh;
 }
 
 @keyframes content3{
@@ -138,6 +142,7 @@ nav{
     animation-name: content4;
     animation-duration: 2s;
     animation-fill-mode: forwards;
+    font-size: 3vh;
 }
 
 @keyframes content4{
