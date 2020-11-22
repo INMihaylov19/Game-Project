@@ -113,22 +113,31 @@ function play(buttonID) {
   winCheck();
 }
 let player1wins = 0;
+//count of first player wins
 let player2wins = 0;
+//count of second player wins
 let ties = 0;
+//count of ties
 var counter = 0;
+//how many times have the user clicked the screen since the match was over
 function restartGame() {
   var noTie = true;
-  if (matchStatus == true && counter == 1) {
+  //is there a tie
+  if (matchStatus == true && counter == 2) {
     player1wins++;
     document.getElementById("scoreP1").innerHTML = "Играч 1: " + player1wins;
+    //updates the stats on the screen
     counter = 0;
     clearboard();
+    //clears board
   }
-  if (matchStatus == false && counter == 1) {
+  if (matchStatus == false && counter == 2) {
     player2wins++;
     document.getElementById("scoreP2").innerHTML = "Играч 2: " + player2wins;
+    //updates the stats on the screen
     counter = 0;
     clearboard();
+    //clears board
   }
   var fullRows = 0;
   for (let i = 0; i < 3; i++) {
@@ -146,7 +155,7 @@ function restartGame() {
       noTie = false
     }
   }
-  if (!noTie && counter == 1) {
+  if (!noTie && counter == 2) {
     ties++;
     document.getElementById("ties").innerHTML = "Равенства: " + ties;
     counter = 0;
