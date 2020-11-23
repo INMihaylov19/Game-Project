@@ -123,7 +123,7 @@ var counter = 0;
 function restartGame() {
   var noTie = true;
   //is there a tie
-  if (matchStatus == true && counter == 2) {
+  if (matchStatus == true && counter == 1) {
     player1wins++;
     document.getElementById("scoreP1").innerHTML = "Играч 1: " + player1wins;
     //updates the stats on the screen
@@ -131,7 +131,7 @@ function restartGame() {
     clearboard();
     //clears board
   }
-  if (matchStatus == false && counter == 2) {
+  if (matchStatus == false && counter == 1) {
     player2wins++;
     document.getElementById("scoreP2").innerHTML = "Играч 2: " + player2wins;
     //updates the stats on the screen
@@ -155,7 +155,7 @@ function restartGame() {
       noTie = false
     }
   }
-  if (!noTie && counter == 2) {
+  if (!noTie && counter == 1) {
     ties++;
     document.getElementById("ties").innerHTML = "Равенства: " + ties;
     counter = 0;
