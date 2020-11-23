@@ -1,12 +1,14 @@
 # Game-Project
+<hr>
 Участници:
-Василен Михайлов(VMMihaylov19) - Code checker
 
-Иван Михайлов(INMihaylov19) - Front end developer
+• Василен Михайлов(VMMihaylov19) - Code checker
 
-Йоан Гаврилов(YAGavrilov19) - Scrum trainer
+• Иван Михайлов(INMihaylov19) - Front end developer
 
-Стефан Равнинов(SORavninov19) - Back end developer
+• Йоан Гаврилов(YAGavrilov19) - Scrum trainer
+
+• Стефан Равнинов(SORavninov19) - Back end developer
 
 
 Обобщение на проекта:
