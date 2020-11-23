@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    color:rgb(69,30,93);
+    background-color:black;
+    display: flex;
+    justify-content: center;
+    font-size:30px ;
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  .board {
+    margin: 25px;
+    padding: 50px;
+    background:black;
+    border-radius: 25px;
+    position: relative;
+    animation-name: gamestart;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes gamestart{
+    0%      {top: -1000px;}
+    100%    {top: 0px;}
+}
+
+  
+  .title{
+    text-align: center;
+    font-size: 6vh;
+  }
+
+
+  a{
+    color:rgb(69,30,93);
+    text-decoration: none;
+    letter-spacing: 8px;
+}
+
+  a:hover{
+    color: #ed7ab0;
+    transition-duration: 0.6s;
+  }
+  
+  .grid {
+    background:rgb(69,30,93);
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px;
+    grid-gap: 5px;
+    margin-top: 50px;
+  }
+  
+  .game-cell {
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+    border-style: none;
+  }
+
+ button:active {
+border: none;
+outline:none;
+
+}
+button:focus {
+border: none;
+outline:none;
+}
+
+#stats{
+  position: relative;
+  padding: 80px;
+  margin-right: -450px;
+  font-size: 4vh;
+  animation-name: stats;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+  @keyframes stats{
+    0% {right: -1000px;}
+    100% {right: 0px;}
+
+  }
+
+
