@@ -1,183 +1,258 @@
 var currentPlayer = true
 //whos turn is it
-var currentMatch =
+var board =
   [[0, 0, 0],
   [0, 0, 0],
   [0, 0, 0]]
-var matchStatus;
+
 //is the match won and who won it
+var matchStatus;
+
+//is there a tie
+var noTie = true;
+
+//counts the moves that have happened
+var counter = 0;
+//check if someone has one and who won it
 function winCheck() {
-  if (currentMatch[0][0] == currentMatch[0][1] && currentMatch[0][0] == currentMatch[0][2] && currentMatch[0][0] == 1) {
-    matchStatus = true;
-  }
+
+
   //Match won by first player filling all upper spaces
-
-  if (currentMatch[1][0] == currentMatch[1][1] && currentMatch[1][2] == currentMatch[1][0] && currentMatch[1][2] == 1) {
+  if (board[0][0] == board[0][1] && board[0][0] == board[0][2] && board[0][0] == 1) {
     matchStatus = true;
   }
+
   //Match won by first player filling all middle spaces
-
-  if (currentMatch[2][0] == currentMatch[2][1] && currentMatch[2][0] == currentMatch[2][2] && currentMatch[2][0] == 1) {
+  if (board[1][0] == board[1][1] && board[1][2] == board[1][0] && board[1][2] == 1) {
     matchStatus = true;
   }
+
   //Match won by first player filling all lower spaces
+  if (board[2][0] == board[2][1] && board[2][0] == board[2][2] && board[2][0] == 1) {
+    matchStatus = true;
+  }
 
-  if (currentMatch[0][0] == currentMatch[0][1] && currentMatch[0][0] == currentMatch[0][2] && currentMatch[0][0] == 2) {
-    matchStatus = false;
-  }//Match won by second player filling all upper spaces
-
-  if (currentMatch[1][0] == currentMatch[1][1] && currentMatch[1][0] == currentMatch[1][2] && currentMatch[1][0] == 2) {
+  //Match won by second player filling all upper spaces
+  if (board[0][0] == board[0][1] && board[0][0] == board[0][2] && board[0][0] == 2) {
     matchStatus = false;
   }
+
   //Match won by second player filling all middle spaces
+  if (board[1][0] == board[1][1] && board[1][0] == board[1][2] && board[1][0] == 2) {
+    matchStatus = false;
+  }
 
-  if (currentMatch[2][0] == currentMatch[2][1] && currentMatch[2][0] == currentMatch[2][2] && currentMatch[2][0] == 2) {
-    matchStatus = false;
-  }
   //Match won by second player filling all lower spaces
-  if (currentMatch[0][0] == currentMatch[1][0] && currentMatch[0][0] == currentMatch[2][0] && currentMatch[0][0] == 1) {
+  if (board[2][0] == board[2][1] && board[2][0] == board[2][2] && board[2][0] == 2) {
+    matchStatus = false;
+  }
+
+  //Match won by first player filling all left spaces 
+  if (board[0][0] == board[1][0] && board[0][0] == board[2][0] && board[0][0] == 1) {
     matchStatus = true;
   }
-  //Match won by first player filling all left spaces
-  if (currentMatch[0][1] == currentMatch[1][1] && currentMatch[0][1] == currentMatch[2][1] && currentMatch[0][1] == 1) {
-    matchStatus = true;
-  }
+
   //Match won by first player filling all middle vertical spaces
-  if (currentMatch[0][2] == currentMatch[1][2] && currentMatch[0][2] == currentMatch[2][2] && currentMatch[0][2] == 1) {
+  if (board[0][1] == board[1][1] && board[0][1] == board[2][1] && board[0][1] == 1) {
     matchStatus = true;
   }
+
   //Match won by first player filling all right spaces
-  if (currentMatch[0][0] == currentMatch[1][0] && currentMatch[0][0] == currentMatch[2][0] && currentMatch[0][0] == 2) {
-    matchStatus = false;
+  if (board[0][2] == board[1][2] && board[0][2] == board[2][2] && board[0][2] == 1) {
+    matchStatus = true;
   }
+
   //Match won by second player filling all left spaces
-  if (currentMatch[0][1] == currentMatch[1][1] && currentMatch[0][1] == currentMatch[2][1] && currentMatch[0][1] == 2) {
+  if (board[0][0] == board[1][0] && board[0][0] == board[2][0] && board[0][0] == 2) {
     matchStatus = false;
   }
+
   //Match won by second player filling all middle vertical spaces
-  if (currentMatch[0][2] == currentMatch[1][2] && currentMatch[0][2] == currentMatch[2][2] && currentMatch[0][2] == 2) {
+  if (board[0][1] == board[1][1] && board[0][1] == board[2][1] && board[0][1] == 2) {
     matchStatus = false;
   }
+
   //Match won by second player filling all right spaces
-  if (currentMatch[0][0] == currentMatch[1][1] && currentMatch[0][0] == currentMatch[2][2] && currentMatch[0][0] == 1) {
-    matchStatus = true;
+  if (board[0][2] == board[1][2] && board[0][2] == board[2][2] && board[0][2] == 2) {
+    matchStatus = false;
   }
+
   //Match won by first player filling all left diagonal spaces
-  if (currentMatch[0][2] == currentMatch[1][1] && currentMatch[0][2] == currentMatch[2][0] && currentMatch[0][2] == 1) {
+  if (board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[0][0] == 1) {
     matchStatus = true;
   }
+
   //Match won by first player filling all right diagonal spaces
-  if (currentMatch[0][0] == currentMatch[1][1] && currentMatch[0][0] == currentMatch[2][2] && currentMatch[0][0] == 2) {
-    matchStatus = false;
+  if (board[0][2] == board[1][1] && board[0][2] == board[2][0] && board[0][2] == 1) {
+    matchStatus = true;
   }
+
   //Match won by second player filling all left diagonal spaces
-  if (currentMatch[0][2] == currentMatch[1][1] && currentMatch[0][2] == currentMatch[2][0] && currentMatch[0][2] == 2) {
+  if (board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[0][0] == 2) {
     matchStatus = false;
   }
+
   //Match won by second player filling all right diagonal spaces
+  if (board[0][2] == board[1][1] && board[0][2] == board[2][0] && board[0][2] == 2) {
+    matchStatus = false;
+  }
+
+  //checks if there is a tie
+  if (counter > 4) {
+    //how many filled rows are there
+    var fullRows = 0;
+    for (let i = 0; i < 3; i++) {
+      //how many empty spaces are there in a row
+      let nonEmptySpaces = 0;
+      for (let j = 0; j < 3; j++) {
+        //checks if a space is empty
+        if (board[i][j] != 0) {
+          nonEmptySpaces++
+        }
+        //sees if all the spaces in a row are empty
+        if (nonEmptySpaces == 3) {
+          fullRows++;
+        }
+      }
+    }
+    //checks if there all the rows are filled
+    if (fullRows == 3 && matchStatus == null) {
+      noTie = false
+    }
+  }
 }
 function play(buttonID) {
+
+
+  // postion of the current button
   var positionX = buttonID[0] - 1;
   var positionY = buttonID[2] - 1;
-  // postion of the current button
+
+  //Name of the class
   var buttonClass = document.getElementById(buttonID).className
+
+  //checks if we can play on this spot
   if (currentPlayer == true && !buttonClass.includes("used")) {
-    //checks if we can play on this spot
+    //initiats the visual representation of a move
     document.getElementById(buttonID).className += " usedX"
     document.getElementById(buttonID).childNodes[0].src = "../Images/cross copy.png"
     document.getElementById(buttonID).childNodes[0].style.display = "block"
     document.getElementById(buttonID).childNodes[0].style.width = "175px"
     document.getElementById(buttonID).childNodes[0].style.height = "175px"
 
-    //initiats the visual representation of a move
-    currentMatch[positionX][positionY] = 1;
     //logs into memory the move
-    currentPlayer = false;
+    board[positionX][positionY] = 1;
+
     //switches whos turn it is
+    currentPlayer = false;
+
+    counter++;
   }
 
+  //checks if we can play on this spot
   else if (!buttonClass.includes("used")) {
-    //checks if we can play on this spot
+
+    //initiats the visual representation of a move
     document.getElementById(buttonID).className += " usedO"
     document.getElementById(buttonID).childNodes[0].src = "../Images/circle.png"
     document.getElementById(buttonID).childNodes[0].style.display = "block"
     document.getElementById(buttonID).childNodes[0].style.width = "140px"
     document.getElementById(buttonID).childNodes[0].style.height = "140px"
-    //initiats the visual representation of a move
-    currentMatch[positionX][positionY] = 2;
-    //logs into memory the move
-    currentPlayer = true;
+
+    //logs into memory the move 
+    board[positionX][positionY] = 2;
+
     //switches whos turn it is
+    currentPlayer = true;
+
+    counter++;
 
   }
-  winCheck();
+
+  //check if someone has won
+  if (counter > 3) {
+    winCheck();
+  }
 }
-let player1wins = 0;
-//count of first player wins
-let player2wins = 0;
-//count of second player wins
-let ties = 0;
-//count of ties
-var counter = 0;
-//how many times have the user clicked the screen since the match was over
-function restartGame() {
-  var noTie = true;
-  //is there a tie
-  if (matchStatus == true && counter == 1) {
-    player1wins++;
-    document.getElementById("scoreP1").innerHTML = "Играч 1: " + player1wins;
-    //updates the stats on the screen
-    counter = 0;
-    clearboard();
-    //clears board
-  }
-  if (matchStatus == false && counter == 1) {
-    player2wins++;
-    document.getElementById("scoreP2").innerHTML = "Играч 2: " + player2wins;
-    //updates the stats on the screen
-    counter = 0;
-    clearboard();
-    //clears board
-  }
-  var fullRows = 0;
-  for (let i = 0; i < 3; i++) {
-    let nonEmptySpaces = 0;
-    for (let j = 0; j < 3; j++) {
-      if (currentMatch[i][j] != 0) {
-        nonEmptySpaces++
-      }
-      if (nonEmptySpaces == 3) {
-        fullRows++;
-      }
-    }
 
-    if (fullRows == 3) {
-      noTie = false
-    }
+//count of first player wins
+let player1wins = 0;
+
+//count of second player wins
+let player2wins = 0;
+
+//count of ties
+let ties = 0;
+
+//how many times have the user clicked the screen since the match was over
+var clicksAfterWinCounter = 0;
+
+//resets the game
+function restartGame() {
+
+  //checks if X player won
+  if (matchStatus == true && clicksAfterWinCounter >= 1) {
+    player1wins++;
+    //updates the stats on the screen
+    document.getElementById("scoreP1").innerHTML = "Играч 1: " + player1wins;
+
+    clicksAfterWinCounter = 0;
+
+    //clears board 
+    clearBoard();
+
   }
-  if (!noTie && counter == 1) {
+
+  //checks if O player won
+  if (matchStatus == false && clicksAfterWinCounter >= 1) {
+    player2wins++;
+    //updates the stats on the screen
+    document.getElementById("scoreP2").innerHTML = "Играч 2: " + player2wins;
+
+    clicksAfterWinCounter = 0;
+
+    //clears board
+    clearBoard();
+
+  }
+  //checks if there is a tie
+  if (!noTie && clicksAfterWinCounter >= 1) {
     ties++;
     document.getElementById("ties").innerHTML = "Равенства: " + ties;
-    counter = 0;
-    clearboard();
+    clicksAfterWinCounter = 0;
+    noTie = true
+    clearBoard();
   }
-  if (matchStatus == true || matchStatus == false || noTie == false) {
-    counter++;
+
+  //Makes updates the number of times the board was click when there is a winner
+  if ((matchStatus == true || matchStatus == false || noTie == false) & clicksAfterWinCounter != 2) {
+    clicksAfterWinCounter++;
   }
+
+
 }
-function clearboard() {
+
+function clearBoard() {
+  //runs through all the places of the board
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
-      currentMatch[i][j] = 0;
+      //resets the data base
+      board[i][j] = 0;
     }
   }
   for (let i = 0; i < 9; i++) {
+    //removes the visual representation
     document.getElementsByTagName("img")[i].style.display = "none"
   }
   for (let i = 0; i < 9; i++) {
+    //removes the html code changed in the game
     document.getElementsByTagName("button")[i].className = "game-cell"
   }
+  //resets the score
   matchStatus = null
+  //sets the currently playing player to be X
   currentPlayer = true
+
+
 }
 
