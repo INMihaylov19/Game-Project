@@ -60,30 +60,54 @@
     border-style: none;
   }
 
- button:active {
-border: none;
-outline:none;
+   button:active {
+    border: none;
+    outline:none;
 
-}
-button:focus {
-border: none;
-outline:none;
-}
-
-#stats{
-  position: relative;
-  padding: 80px;
-  margin-right: -450px;
-  font-size: 4vh;
-  animation-name: stats;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
+  }
+   button:focus {
+    border: none;
+    outline:none;
 }
 
-  @keyframes stats{
+   #stats{ 
+    position: relative;
+    padding: 80px;
+    margin-right: -450px;
+    font-size: 4vh;
+    animation-name: stats;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+   @keyframes stats{
     0% {right: -1000px;}
     100% {right: 0px;}
 
+  }
+
+  .message{
+    display: none;
+    position: fixed;
+    margin-top: 400px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .9);
+    justify-content: center;
+    align-items: center;
+    color: rgb(69,30,93);
+    font-size: 5rem;
+    flex-direction: column;
+    animation-name: message;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes message{
+    0%      {top: -1000px;}
+    100%    {top: 0px;}
   }
 
 
