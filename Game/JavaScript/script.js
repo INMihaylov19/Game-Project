@@ -1,3 +1,5 @@
+var gameMode;
+
 var currentPlayer = true
 //whos turn is it
 var board =
@@ -13,9 +15,24 @@ var noTie = true;
 
 //counts the moves that have happened
 var counter = 0;
+
+//checks what the game mode is
+function chooseGameMode(buttonID) {
+  if (buttonID == "p1") {
+    gameMode = true;
+  }
+  if (buttonID == "p2") {
+    gameMode = false;
+  }
+  //removes the chose game mode menu
+  document.getElementById("gameMode").style.display = "none"
+  document.getElementById("show").style.display = "block"
+  document.getElementById("stats").style.display = "block"
+}
+
+
 //check if someone has one and who won it
 function winCheck() {
-
 
   //Match won by first player filling all upper spaces
   if (board[0][0] == board[0][1] && board[0][0] == board[0][2] && board[0][0] == 1) {
@@ -97,6 +114,20 @@ function winCheck() {
     matchStatus = false;
   }
 
+  if (matchStatus) {
+    //sets the pop up to be right
+    document.getElementsByClassName("message")[0].innerHTML = "Играч 1 победи"
+
+    //displays the pop up
+    document.getElementsByClassName("message")[0].style.display = "block"
+  }
+  if (matchStatus == false) {
+    //sets the pop up to be right
+    document.getElementsByClassName("message")[0].innerHTML = "Играч 2 победи"
+
+    //displays the pop up
+    document.getElementsByClassName("message")[0].style.display = "block"
+  }
   //checks if there is a tie
   if (counter > 4) {
     //how many filled rows are there
@@ -119,7 +150,16 @@ function winCheck() {
     if (fullRows == 3 && matchStatus == null) {
       noTie = false
     }
+    if (noTie == false) {
+      //sets the pop up to be right
+      document.getElementsByClassName("message")[0].innerHTML = "Равни"
+
+      //displays the pop up
+      document.getElementsByClassName("message")[0].style.display = "block"
+    }
   }
+  //checks if it has to display a pop
+
 }
 function play(buttonID) {
 
@@ -130,51 +170,88 @@ function play(buttonID) {
 
   //Name of the class
   var buttonClass = document.getElementById(buttonID).className
+  if (gameMode == true) {
+    //checks if we can play on this spot
+    if (currentPlayer == true && !buttonClass.includes("used")) {
+      //initiats the visual representation of a move
+      document.getElementById(buttonID).className += " usedX"
+      document.getElementById(buttonID).childNodes[0].src = "../Images/cross copy.png"
+      document.getElementById(buttonID).childNodes[0].style.display = "block"
+      document.getElementById(buttonID).childNodes[0].style.width = "175px"
+      document.getElementById(buttonID).childNodes[0].style.height = "175px"
 
-  //checks if we can play on this spot
-  if (currentPlayer == true && !buttonClass.includes("used")) {
-    //initiats the visual representation of a move
-    document.getElementById(buttonID).className += " usedX"
-    document.getElementById(buttonID).childNodes[0].src = "../Images/cross copy.png"
-    document.getElementById(buttonID).childNodes[0].style.display = "block"
-    document.getElementById(buttonID).childNodes[0].style.width = "175px"
-    document.getElementById(buttonID).childNodes[0].style.height = "175px"
+      //logs into memory the move
+      board[positionX][positionY] = 1;
 
-    //logs into memory the move
-    board[positionX][positionY] = 1;
+      //switches whos turn it is
+      currentPlayer = false;
 
-    //switches whos turn it is
-    currentPlayer = false;
+      counter++;
+    }
 
-    counter++;
+    //checks if we can play on this spot
+    else if (!buttonClass.includes("used")) {
+
+      //initiats the visual representation of a move
+      document.getElementById(buttonID).className += " usedO"
+      document.getElementById(buttonID).childNodes[0].src = "../Images/circle.png"
+      document.getElementById(buttonID).childNodes[0].style.display = "block"
+      document.getElementById(buttonID).childNodes[0].style.width = "140px"
+      document.getElementById(buttonID).childNodes[0].style.height = "140px"
+
+      //logs into memory the move 
+      board[positionX][positionY] = 2;
+
+      //switches whos turn it is
+      currentPlayer = true;
+      counter++;
+    }
   }
+  else if (gameMode == false) {
+    //checks if we can play on this spot
+    if (currentPlayer == true && !buttonClass.includes("used")) {
+      //initiats the visual representation of a move
+      document.getElementById(buttonID).className += " usedX"
+      document.getElementById(buttonID).childNodes[0].src = "../Images/cross copy.png"
+      document.getElementById(buttonID).childNodes[0].style.display = "block"
+      document.getElementById(buttonID).childNodes[0].style.width = "175px"
+      document.getElementById(buttonID).childNodes[0].style.height = "175px"
 
-  //checks if we can play on this spot
-  else if (!buttonClass.includes("used")) {
+      //logs into memory the move
+      board[positionX][positionY] = 1;
 
-    //initiats the visual representation of a move
-    document.getElementById(buttonID).className += " usedO"
-    document.getElementById(buttonID).childNodes[0].src = "../Images/circle.png"
-    document.getElementById(buttonID).childNodes[0].style.display = "block"
-    document.getElementById(buttonID).childNodes[0].style.width = "140px"
-    document.getElementById(buttonID).childNodes[0].style.height = "140px"
+      //switches whos turn it is
+      currentPlayer = false;
 
-    //logs into memory the move 
-    board[positionX][positionY] = 2;
-
-    //switches whos turn it is
-    currentPlayer = true;
-
-    counter++;
-
+      counter++;
+    }
+    if (currentPlayer == false) {
+      aiMove()
+    }
   }
-
   //check if someone has won
   if (counter > 3) {
     winCheck();
   }
 }
-
+function aiMove() {
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      if (board[i][j] == 0) {
+        board[i][j] == 1;
+        winCheck()
+        if (!matchStatus) {
+          //initiats the visual representation of a move
+          document.getElementById(i + '-' + j).className += " usedO"
+          document.getElementById(buttonID).childNodes[0].src = "../Images/circle.png"
+          document.getElementById(buttonID).childNodes[0].style.display = "block"
+          document.getElementById(buttonID).childNodes[0].style.width = "175px"
+          document.getElementById(buttonID).childNodes[0].style.height = "175px"
+        }
+      }
+    }
+  }
+}
 //count of first player wins
 let player1wins = 0;
 
@@ -193,14 +270,16 @@ function restartGame() {
   //checks if X player won
   if (matchStatus == true && clicksAfterWinCounter >= 1) {
     player1wins++;
+
     //updates the stats on the screen
     document.getElementById("scoreP1").innerHTML = "Играч 1: " + player1wins;
-
     clicksAfterWinCounter = 0;
+
+    //removes the pop up
+    document.getElementsByClassName("message")[0].style.display = "none"
 
     //clears board 
     clearBoard();
-
   }
 
   //checks if O player won
@@ -208,8 +287,10 @@ function restartGame() {
     player2wins++;
     //updates the stats on the screen
     document.getElementById("scoreP2").innerHTML = "Играч 2: " + player2wins;
-
     clicksAfterWinCounter = 0;
+
+    //removes the pop up
+    document.getElementsByClassName("message")[0].style.display = "none"
 
     //clears board
     clearBoard();
@@ -218,9 +299,14 @@ function restartGame() {
   //checks if there is a tie
   if (!noTie && clicksAfterWinCounter >= 1) {
     ties++;
+
+    //Updates the score on the screen
     document.getElementById("ties").innerHTML = "Равенства: " + ties;
     clicksAfterWinCounter = 0;
     noTie = true
+
+    //removes the pop up
+    document.getElementsByClassName("message")[0].style.display = "none"
     clearBoard();
   }
 
