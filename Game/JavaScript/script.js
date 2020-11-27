@@ -235,22 +235,7 @@ function play(buttonID) {
   }
 }
 function aiMove() {
-  for (let i = 0; i < 3; i++) {
-    for (let j = 0; j < 3; j++) {
-      if (board[i][j] == 0) {
-        board[i][j] == 1;
-        winCheck()
-        if (!matchStatus) {
-          //initiats the visual representation of a move
-          document.getElementById(i + '-' + j).className += " usedO"
-          document.getElementById(buttonID).childNodes[0].src = "../Images/circle.png"
-          document.getElementById(buttonID).childNodes[0].style.display = "block"
-          document.getElementById(buttonID).childNodes[0].style.width = "175px"
-          document.getElementById(buttonID).childNodes[0].style.height = "175px"
-        }
-      }
-    }
-  }
+
 }
 //count of first player wins
 let player1wins = 0;
@@ -341,4 +326,3 @@ function clearBoard() {
 
 
 }
-
