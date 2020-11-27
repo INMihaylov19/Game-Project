@@ -222,20 +222,55 @@ function play(buttonID) {
 
       //switches whos turn it is
       currentPlayer = false;
-
-      counter++;
+      console.log(board)
+      counter++
     }
+
+    winCheck();
+
     if (currentPlayer == false) {
-      aiMove()
+      var bestScore = -Infinity
+      var bestMoveID;
+      var aiPositionX;
+      var aiPositionY;
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          if (board[i][j] == 0) {
+            board[i][j] = 2
+            let score = aiMove()
+            board[i][j] = 0
+            if (score > bestScore) {
+              bestScore = score;
+              aiPositionX = i;
+              aiPositionY = j;
+              bestMoveID = (i + 1) + "-" + (j + 1)
+            }
+          }
+        }
+      }
+      //initiats the visual representation of a move
+      document.getElementById(bestMoveID).className += " usedO"
+      document.getElementById(bestMoveID).childNodes[0].src = "../Images/circle.png"
+      document.getElementById(bestMoveID).childNodes[0].style.display = "block"
+      document.getElementById(bestMoveID).childNodes[0].style.width = "140px"
+      document.getElementById(bestMoveID).childNodes[0].style.height = "140px"
+      console.log(board)
+      //logs into memory the move
+      board[aiPositionX][aiPositionY] = 2;
+
+      //switches whos turn it is
+      currentPlayer = true;
+      counter++;
     }
   }
   //check if someone has won
+
   if (counter > 3) {
     winCheck();
   }
 }
 function aiMove() {
-
+  return 1;
 }
 //count of first player wins
 let player1wins = 0;
