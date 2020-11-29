@@ -17,10 +17,11 @@
     animation-duration: 2s;
     animation-fill-mode: forwards;
   }
+
   @keyframes gamestart{
     0%      {top: -1000px;}
     100%    {top: 0px;}
-}
+  }
 
   
   .title{
@@ -38,8 +39,10 @@
   a:hover{
     color: #ed7ab0;
     transition-duration: 0.6s;
+    font-size: 50px;
+    font-weight: bold;
   }
-  
+
   .grid {
     background:rgb(69,30,93);
     display: grid;
@@ -68,7 +71,7 @@
    button:focus {
     border: none;
     outline:none;
-}
+  }
 
    #stats{ 
     position: relative;
@@ -78,7 +81,7 @@
     animation-name: stats;
     animation-duration: 2s;
     animation-fill-mode: forwards;
-}
+  }
 
    @keyframes stats{
     0% {right: -1000px;}
@@ -87,6 +90,7 @@
   }
 
   .message{
+    display: none;
     position: absolute;
     margin-top: 400px;
     top: 0;

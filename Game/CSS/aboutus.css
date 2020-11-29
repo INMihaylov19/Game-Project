@@ -6,6 +6,7 @@
 img{
     max-width: 10vh;
 }
+
 a{
     color:rgb(69,30,93);
     text-decoration: none;
@@ -64,6 +65,8 @@ nav{
 #main-menu a:hover{
     color: #ed7ab0;
     transition-duration: 0.6s;
+    font-size: 70px;
+    font-weight: bold;
 }
 #showcase{
     height: 260px;
