@@ -31,6 +31,7 @@ function chooseGameMode(buttonID) {
 }
 
 
+
 //check if someone has one and who won it
 function winCheck() {
 
@@ -114,22 +115,8 @@ function winCheck() {
     matchStatus = false;
   }
 
-  if (matchStatus) {
-    //sets the pop up to be right
-    document.getElementsByClassName("message")[0].innerHTML = "Играч 1 победи"
-
-    //displays the pop up
-    document.getElementsByClassName("message")[0].style.display = "block"
-  }
-  if (matchStatus == false) {
-    //sets the pop up to be right
-    document.getElementsByClassName("message")[0].innerHTML = "Играч 2 победи"
-
-    //displays the pop up
-    document.getElementsByClassName("message")[0].style.display = "block"
-  }
   //checks if there is a tie
-  if (counter > 4) {
+  if (counter > 8) {
     //how many filled rows are there
     var fullRows = 0;
     for (let i = 0; i < 3; i++) {
@@ -150,13 +137,7 @@ function winCheck() {
     if (fullRows == 3 && matchStatus == null) {
       noTie = false
     }
-    if (noTie == false) {
-      //sets the pop up to be right
-      document.getElementsByClassName("message")[0].innerHTML = "Равни"
 
-      //displays the pop up
-      document.getElementsByClassName("message")[0].style.display = "block"
-    }
   }
   //checks if it has to display a pop
 
@@ -222,7 +203,7 @@ function play(buttonID) {
 
       //switches whos turn it is
       currentPlayer = false;
-      console.log(board)
+
       counter++
     }
 
@@ -237,7 +218,7 @@ function play(buttonID) {
         for (let j = 0; j < 3; j++) {
           if (board[i][j] == 0) {
             board[i][j] = 2
-            let score = aiMove()
+            let score = aiMove(true)
             board[i][j] = 0
             if (score > bestScore) {
               bestScore = score;
@@ -254,7 +235,6 @@ function play(buttonID) {
       document.getElementById(bestMoveID).childNodes[0].style.display = "block"
       document.getElementById(bestMoveID).childNodes[0].style.width = "140px"
       document.getElementById(bestMoveID).childNodes[0].style.height = "140px"
-      console.log(board)
       //logs into memory the move
       board[aiPositionX][aiPositionY] = 2;
 
@@ -265,12 +245,57 @@ function play(buttonID) {
   }
   //check if someone has won
 
-  if (counter > 3) {
+  if (counter > 4) {
     winCheck();
   }
 }
-function aiMove() {
-  return 1;
+function aiMove(currentAiPlayer) {
+  winCheck();
+  aimatchStatus = matchStatus
+  aiNoTie = noTie;
+  matchStatus = null;
+  noTie = true;
+  if (aimatchStatus == true) {
+    return -1;
+  }
+  if (aimatchStatus == false) {
+    return 1;
+  }
+  if (aiNoTie == false) {
+    return 0;
+  }
+  if (currentAiPlayer) {
+    let bestScore = +Infinity;
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        if (board[i][j] == 0) {
+          board[i][j] = 1;
+          let score = aiMove(false)
+          board[i][j] = 0;
+          if (score < bestScore) {
+            bestScore = score
+          }
+        }
+      }
+    }
+    return bestScore;
+  }
+  if (!currentAiPlayer) {
+    let bestScore = -Infinity;
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        if (board[i][j] == 0) {
+          board[i][j] = 2;
+          let score = aiMove(true)
+          board[i][j] = 0;
+          if (score > bestScore) {
+            bestScore = score
+          }
+        }
+      }
+    }
+    return bestScore;
+  }
 }
 //count of first player wins
 let player1wins = 0;
@@ -335,6 +360,27 @@ function restartGame() {
     clicksAfterWinCounter++;
   }
 
+  if (matchStatus == true) {
+    //sets the pop up to be right
+    document.getElementsByClassName("message")[0].innerHTML = "Играч 1 победи"
+
+    //displays the pop up
+    document.getElementsByClassName("message")[0].style.display = "block"
+  }
+  if (matchStatus == false) {
+    //sets the pop up to be right
+    document.getElementsByClassName("message")[0].innerHTML = "Играч 2 победи"
+
+    //displays the pop up
+    document.getElementsByClassName("message")[0].style.display = "block"
+  }
+  if (noTie == false) {
+    //sets the pop up to be right
+    document.getElementsByClassName("message")[0].innerHTML = "Равни"
+
+    //displays the pop up
+    document.getElementsByClassName("message")[0].style.display = "block"
+  }
 
 }
 
