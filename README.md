@@ -19,28 +19,28 @@
 
 • Game on HTML/CSS & JS known by the name Tic Tac Toe.
 
-[•Presentation](Documents/Presentation.pptx) <br>
+[•Presentation](Documents/Presentation.pptx) <br><br>
 [•Documentation](Documents/Documentation-Tic-Tac-Toe-game.docx)
 
 # Pictures of final product
 
-• Main Menu
+## •Main Menu
 <img src = "Pictures for README/menu.png">
 
 
-•About Us
+## •About Us
 <img src = "Pictures for README/about.png">
 
 
-•Rules
+## •Rules
 <img src = "Pictures for README/rules.png">
 
 
-•Choose between playing against AI or against a friend
+## •Choose between playing against AI or against a friend
 <img src = "Pictures for README/pchoice.png">
 
 
-•Play!
+## •Play!
 <img src = "Pictures for README/game.png">
 
 
