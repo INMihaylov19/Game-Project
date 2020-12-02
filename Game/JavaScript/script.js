@@ -30,8 +30,6 @@ function chooseGameMode(buttonID) {
   document.getElementById("stats").style.display = "block"
 }
 
-
-
 //check if someone has one and who won it
 function winCheck() {
 
@@ -272,7 +270,7 @@ function aiMove(currentAiPlayer) {
           board[i][j] = 1;
           let score = aiMove(false)
           board[i][j] = 0;
-          if (score < bestScore) {
+          if (score <= bestScore) {
             bestScore = score
           }
         }
@@ -288,7 +286,7 @@ function aiMove(currentAiPlayer) {
           board[i][j] = 2;
           let score = aiMove(true)
           board[i][j] = 0;
-          if (score > bestScore) {
+          if (score >= bestScore) {
             bestScore = score
           }
         }
@@ -317,7 +315,7 @@ function restartGame() {
     player1wins++;
 
     //updates the stats on the screen
-    document.getElementById("scoreP1").innerHTML = "Играч 1: " + player1wins;
+    document.getElementById("scoreP1").innerHTML = "Играч X: " + player1wins;
     clicksAfterWinCounter = 0;
 
     //removes the pop up
@@ -331,7 +329,7 @@ function restartGame() {
   if (matchStatus == false && clicksAfterWinCounter >= 1) {
     player2wins++;
     //updates the stats on the screen
-    document.getElementById("scoreP2").innerHTML = "Играч 2: " + player2wins;
+    document.getElementById("scoreP2").innerHTML = "Играч O: " + player2wins;
     clicksAfterWinCounter = 0;
 
     //removes the pop up
@@ -362,14 +360,14 @@ function restartGame() {
 
   if (matchStatus == true) {
     //sets the pop up to be right
-    document.getElementsByClassName("message")[0].innerHTML = "Играч 1 победи"
+    document.getElementsByClassName("message")[0].innerHTML = "Играч X победи"
 
     //displays the pop up
     document.getElementsByClassName("message")[0].style.display = "block"
   }
   if (matchStatus == false) {
     //sets the pop up to be right
-    document.getElementsByClassName("message")[0].innerHTML = "Играч 2 победи"
+    document.getElementsByClassName("message")[0].innerHTML = "Играч O победи"
 
     //displays the pop up
     document.getElementsByClassName("message")[0].style.display = "block"
