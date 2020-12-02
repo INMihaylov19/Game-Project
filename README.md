@@ -19,7 +19,7 @@
 
 • Game on HTML/CSS & JS known by the name Tic Tac Toe.
 
-[•Presentation](Documents/Presentation.pptx) <br><br>
+[•Presentation](Documents/Presentation-Tic-Tac-Toe-game.pptx) <br><br>
 [•Documentation](Documents/Documentation-Tic-Tac-Toe-game.docx)
 
 # Pictures of final product
