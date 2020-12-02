@@ -7,6 +7,8 @@ a{
 a:hover{
     color: #ed7ab0;
     transition-duration: 0.6s;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 nav{
@@ -20,6 +22,13 @@ nav{
     margin-top: 40px;
 }
 
+#main-menu a:hover{
+    color: #ed7ab0;
+    transition-duration: 0.6s;
+    font-size: 70px;
+    font-weight: bold;
+}
+
 #showcase{
     height: 260px;
 }
@@ -31,6 +40,13 @@ nav{
     animation: heading;
     animation-duration: 2s;
     animation-fill-mode: forwards;
+}
+
+#showcase a:hover{
+    color: #ed7ab0;
+    transition-duration: 0.6s;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 @keyframes heading{
