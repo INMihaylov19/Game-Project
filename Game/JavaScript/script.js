@@ -30,8 +30,6 @@ function chooseGameMode(buttonID) {
   document.getElementById("stats").style.display = "block"
 }
 
-
-
 //check if someone has one and who won it
 function winCheck() {
 
@@ -272,7 +270,7 @@ function aiMove(currentAiPlayer) {
           board[i][j] = 1;
           let score = aiMove(false)
           board[i][j] = 0;
-          if (score < bestScore) {
+          if (score <= bestScore) {
             bestScore = score
           }
         }
@@ -288,7 +286,7 @@ function aiMove(currentAiPlayer) {
           board[i][j] = 2;
           let score = aiMove(true)
           board[i][j] = 0;
-          if (score > bestScore) {
+          if (score >= bestScore) {
             bestScore = score
           }
         }
